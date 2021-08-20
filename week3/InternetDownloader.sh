@@ -1,14 +1,9 @@
 #!/bin/bash
-# give user option on what to download or to quit
-read -p "Please type the URL of a file to download or type exit to quit:" option
-#use case statement to give options and if option to download selected then continue to loop
-    case $option in 
-                    https://*) 
-                                read -p "Type location of where to save download:" location
-                                $location > output.txt
-                                
+#Create while loop to download and specify where download is to happen
 
-
-                    exit)
-                        echo "Good bye"
-                        exit 0 
+while read -p "Please type the URL of a file to download or type 'exit' to quit: " url; 
+      read -p "Type the location of where you would like to download the file to:" file; do 
+            wget -O $file.txt $url
+done 
+    
+    
